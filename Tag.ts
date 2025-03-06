@@ -7,7 +7,7 @@ export default class Tag extends Folder {
     this.color = color
   }
 
-  async search() {
+  async pullMails() {
     const mails = await fetch(`/mails?tag=${this.id}`)
   }
 }

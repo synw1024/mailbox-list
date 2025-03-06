@@ -10,7 +10,7 @@ export default abstract class Folder {
     return this._name
   }
 
-  abstract search(): void
+  abstract pullMails(): void
 }
 
 export abstract class FolderList<F extends Folder> {

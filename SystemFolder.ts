@@ -5,7 +5,7 @@ export default class SystemFolder extends Folder {
     super(id, name)
   }
 
-  async search() {
+  async pullMails() {
     const mails = await fetch(`/mails?mbox=${this.id}`)
   }
 }

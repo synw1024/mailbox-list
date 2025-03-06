@@ -41,7 +41,7 @@ export default class MailboxList {
         return
       }
     }
-    this.activedMailbox.activedFolder.search()
+    this.activedMailbox.activedFolder.pullMails()
   }
 }
 

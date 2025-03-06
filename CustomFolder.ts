@@ -7,7 +7,7 @@ export default class CustomFolder extends Folder {
     this.children = children
   }
 
-  async search() {
+  async pullMails() {
     const mails = await fetch(`/mails?folder=${this.id}`)
   }
 }
