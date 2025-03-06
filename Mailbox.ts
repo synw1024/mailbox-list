@@ -5,6 +5,7 @@ import { TagList } from "./Tag"
 
 export default class Mailbox {
   private _id: string
+  private _addr: string
   private _systemFolderList: SystemFolderList
   private _customFolderList: CustomFolderList
   private _tagList: TagList
@@ -19,6 +20,10 @@ export default class Mailbox {
 
   get id() {
     return this._id
+  }
+
+  get addr() {
+    return this._addr
   }
 
   get systemFolderList() {

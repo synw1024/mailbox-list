@@ -1,9 +1,13 @@
 export default abstract class Folder {
   readonly id: string
-  protected name: string
+  private _name: string
   constructor(id: string, name: string) {
     this.id = id
-    this.name = name
+    this._name = name
+  }
+
+  get name() {
+    return this._name
   }
 }
 

@@ -1,3 +1,4 @@
+import CustomFolder from "./CustomFolder";
 import Folder, { EFolderListType, FolderList } from "./Folder";
 import Mailbox from "./Mailbox";
 
@@ -39,4 +40,39 @@ export default class MailboxList {
       }
     }
   }
+}
+
+const mailboxList = new MailboxList([])
+
+function render() {
+  return `<aside><menu>
+    ${mailboxList.mailboxes.map(mailbox => `<li>
+      <h6>${mailbox.addr}</h6>
+      <menu>
+        ${mailbox.systemFolderList.folders.map(folder => `<li>
+          <h6>${folder.name}</h6>
+        </li>`)}
+      </menu>
+      <menu>
+        <li>
+          <h6>我的文件夹</h6>
+          ${renderCustomFolderDFS(mailbox.customFolderList.folders)}
+        </li>
+      </menu>
+      <menu>
+        ${mailbox.tagList.folders.map(folder => `<li>
+          <h6>${folder.name}</h6>
+        </li>`)}
+      </menu>
+    </li>`)}
+  </menu></aside>`
+}
+
+function renderCustomFolderDFS(folders: CustomFolder[]) {
+  return folders.length > 0 ? `<menu>
+    ${folders.map(folder => `<li>
+      <h6>${folder.name}</h6>
+      ${renderCustomFolderDFS(folder.children)}
+    </li>`)}
+  </menu>` : ''
 }
