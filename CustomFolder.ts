@@ -6,6 +6,10 @@ export default class CustomFolder extends Folder {
     super(id, name)
     this.children = children
   }
+
+  async search() {
+    const mails = await fetch(`/mails?folder=${this.id}`)
+  }
 }
 
 export class CustomFolderList extends FolderList<CustomFolder> {

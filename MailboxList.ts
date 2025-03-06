@@ -37,8 +37,11 @@ export default class MailboxList {
         this.activedMailbox.setActivedFolder(this.activedMailbox.customFolderList, folderId)
       } else if (folderList === EFolderListType.Tag) {
         this.activedMailbox.setActivedFolder(this.activedMailbox.tagList, folderId)
+      } else {
+        return
       }
     }
+    this.activedMailbox.activedFolder.search()
   }
 }
 
@@ -68,6 +71,10 @@ function render() {
   </menu></aside>`
 }
 
+/**
+ * render custom folder list by DFS
+ * @returns 
+ */
 function renderCustomFolderDFS(folders: CustomFolder[]) {
   return folders.length > 0 ? `<menu>
     ${folders.map(folder => `<li>

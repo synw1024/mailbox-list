@@ -6,6 +6,10 @@ export default class Tag extends Folder {
     super(id, name)
     this.color = color
   }
+
+  async search() {
+    const mails = await fetch(`/mails?tag=${this.id}`)
+  }
 }
 
 export class TagList extends FolderList<Tag> {

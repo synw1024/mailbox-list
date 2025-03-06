@@ -9,6 +9,8 @@ export default abstract class Folder {
   get name() {
     return this._name
   }
+
+  abstract search(): void
 }
 
 export abstract class FolderList<F extends Folder> {
